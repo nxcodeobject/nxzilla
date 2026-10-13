@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="meta.title">Nxzilla — Jembatan Terminal ke Server Remote untuk Windows &amp; Linux</title>
+  <meta name="description" content="Nxzilla — jalankan nxzilla di folder proyek, berkas proyek remote (SSH/SFTP atau FTP/FTPS) ditarik masuk ke folder kerja Anda. Push/pull perubahan dari terminal, TUI keyboard-driven. Tanpa dependensi." data-i18n-attr="content|meta.desc" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <img src="logo.png" alt="Nxzilla" class="brand-logo" />
+        <span class="brand-text">Nxzilla</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#fitur" data-i18n="nav.features">Fitur</a>
+        <a href="#tui" data-i18n="nav.tui">TUI</a>
+        <a href="#cli" data-i18n="nav.cli">CLI</a>
+        <a href="#pasang" data-i18n="nav.install">Pasang</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang-btn="id" class="active">ID</button>
+          <button type="button" data-lang-btn="en">EN</button>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="https://github.com/sponsors/iyanrsaleh" target="_blank" rel="noopener" style="color: #db61a2; border-color: #db61a2; display: inline-flex; align-items: center; gap: 6px;">
+          <i data-lucide="heart" style="width:14px;height:14px;"></i> Sponsor
+        </a>
+        <a class="btn btn-primary btn-sm" href="https://github.com/iyanrsaleh/nxzilla" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="hero.badge">nxzilla v0.1.0 · Windows &amp; Linux · MIT</p>
+          <h1 data-i18n-html="hero.title">Folder kerja Anda, <span class="accent">proyek remote</span> Anda</h1>
+          <p class="lede" data-i18n-html="hero.desc">
+            Buka terminal di folder proyek, jalankan <strong>nxzilla</strong> — berkas
+            proyek remote (SSH/SFTP atau FTP/FTPS) ditarik masuk ke folder kerja itu.
+            Edit di editor favorit, lalu <strong>push</strong> / <strong>pull</strong>
+            perubahan lewat satu perintah.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#pasang" data-i18n="hero.cta1">Mulai Pasang</a>
+            <a class="btn btn-ghost" href="#fitur" data-i18n="hero.cta2">Lihat Fitur</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="term-card">
+            <div class="term-bar"><span></span><span></span><span></span><em>nxzilla</em></div>
+            <pre class="term-body"><span class="t-dim">PS D:\Website</span>&gt; nxzilla
+<span class="t-dim">NXZILLA</span> <span class="t-ok">v0.1.0</span>  ·  <span class="t-ok">TERHUBUNG</span>  ssh info@nxdom.org:22  ·  <span class="t-dim">38 ms</span>
+  <span class="t-dim">Remote</span> /var/www/nxdom     <span class="t-dim">Lokal</span> D:\Website
+  <span class="t-dim">Sinkron terakhir:</span> 2 menit lalu <span class="t-dim">(200 berkas, 3 berubah)</span>
+
+  <span class="t-dim">Status sinkronisasi:</span>
+  <span class="t-warn">M</span>  public_html/index.php         <span class="t-dim">lokal lebih baru</span>
+  <span class="t-ok">A</span>  public_html/uploads/foto.jpg  <span class="t-dim">hanya di server</span>
+  <span class="t-dim">D</span>  public_html/lama.txt          <span class="t-dim">hanya di lokal</span>
+
+ <span class="t-dim">[p] push  [l] pull  [s] status  [g] global  [c] config  [q]</span></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FITUR -->
+    <section class="section" id="fitur">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="feat.title">Fitur</h2>
+          <p class="section-subtitle" data-i18n="feat.sub">Satu alur dari terminal — tanpa dua panel, tanpa drag-and-drop.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-icon"><i data-lucide="terminal"></i></div>
+            <h3 data-i18n="feat.1t">Run di Folder Kerja (run-in-cwd)</h3>
+            <p data-i18n="feat.1d">Jalankan nxzilla di folder proyek — berkas remote ditarik masuk ke folder itu. Editor, IDE, dan build tool lokal langsung bekerja tanpa setup tambahan.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="git-compare-arrows"></i></div>
+            <h3 data-i18n="feat.2t">Push / Pull Satu Perintah</h3>
+            <p data-i18n="feat.2d">nxzilla push mengirim perubahan lokal ke server; nxzilla pull menarik perubahan server. mtime lokal disamakan dengan remote agar perbandingan berikutnya akurat.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="server"></i></div>
+            <h3 data-i18n="feat.3t">SSH/SFTP &amp; FTP/FTPS</h3>
+            <p data-i18n="feat.3d">SSH lewat OpenSSH bawaan (sftp batch) di Windows 10+ dan Linux; FTP/FTPS lewat curl. Dua backend di balik satu mesin sinkron — tanpa dependensi yang di-build sendiri.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="layout-list"></i></div>
+            <h3 data-i18n="feat.4t">Ruang Global: Daftar Proyek</h3>
+            <p data-i18n="feat.4d">Jalankan nxzilla di luar proyek → beranda daftar semua proyek Nxzilla. Buka, push, pull, dan kelola profil koneksi dari satu layar — tanpa cd dulu.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="eye-off"></i></div>
+            <h3 data-i18n="feat.5t">Deteksi Konflik &amp; Baseline</h3>
+            <p data-i18n="feat.5d">Baseline sinkron (.nxzilla-state.json) merekam kondisi terakhir — bila lokal dan remote sama-sama berubah, berkas ditandai konflik (C) dan dilewati sampai --force. Dry-run melihat dulu tanpa mengubah.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="monitor"></i></div>
+            <h3 data-i18n="feat.6t">TUI Flicker-Free</h3>
+            <p data-i18n="feat.6d">Tampilan TUI keyboard-driven bergaya NxPort: header oranye, synchronized output, tanpa kedip, dengan progress transfer per berkas. Fallback teks non-interaktif untuk script dan pipe.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TUI: tombol -->
+    <section class="section alt" id="tui">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="key.title">Kontrol TUI</h2>
+          <p class="section-subtitle" data-i18n="key.sub">Keyboard-driven: satu tombol untuk setiap aksi.</p>
+        </div>
+        <div class="keys-grid">
+          <div class="key-card"><kbd>↑</kbd><kbd>↓</kbd><span data-i18n="key.move">Pilih proyek / perubahan</span></div>
+          <div class="key-card"><kbd>Enter</kbd><span data-i18n="key.open">Buka proyek terpilih</span></div>
+          <div class="key-card"><kbd>p</kbd><span data-i18n="key.push">Push (dengan konfirmasi)</span></div>
+          <div class="key-card"><kbd>l</kbd><span data-i18n="key.pull">Pull</span></div>
+          <div class="key-card"><kbd>s</kbd><span data-i18n="key.status">Segarkan status sinkronisasi</span></div>
+          <div class="key-card"><kbd>a</kbd><span data-i18n="key.add">Tambah proyek</span></div>
+          <div class="key-card"><kbd>e</kbd><kbd>d</kbd><span data-i18n="key.edit">Edit / hapus proyek dari registry</span></div>
+          <div class="key-card"><kbd>c</kbd><span data-i18n="key.config">Kelola profil koneksi</span></div>
+          <div class="key-card"><kbd>r</kbd><span data-i18n="key.refresh">Refresh daftar</span></div>
+          <div class="key-card"><kbd>g</kbd><span data-i18n="key.global">Buka ruang global</span></div>
+          <div class="key-card"><kbd>q</kbd><kbd>Esc</kbd><span data-i18n="key.quit">Keluar</span></div>
+        </div>
+
+        <h3 class="subhead" data-i18n="two.title">Dua Lingkungan, Satu Perintah</h3>
+        <div class="settings-grid">
+          <div class="set-card">
+            <h4><i data-lucide="folder"></i><span data-i18n="two.1t">Lingkungan Proyek</span></h4>
+            <p data-i18n="two.1d">nxzilla dijalankan di folder yang punya .nxzilla.json → sinkronisasi proyek itu: pull, push, dan status langsung di dashboard.</p>
+          </div>
+          <div class="set-card">
+            <h4><i data-lucide="home"></i><span data-i18n="two.2t">Lingkungan Global</span></h4>
+            <p data-i18n="two.2d">nxzilla di luar proyek → beranda Nxzilla: daftar semua proyek terdaftar dengan status synced / dirty / error, siap dibuka atau disinkron.</p>
+          </div>
+          <div class="set-card">
+            <h4><i data-lucide="plug"></i><span data-i18n="two.3t">Profil Koneksi</span></h4>
+            <p data-i18n="two.3d">connections.json menyimpan profil ssh/ftp/ftps (host, port, user, remote path). .nxzilla.json di tiap proyek cukup merujuk nama profilnya.</p>
+          </div>
+        </div>
+
+        <div class="compare-note" data-i18n-html="two.status">
+          <strong>Status proyek:</strong> <code>synced</code> lokal &amp; remote sama ·
+          <code>dirty</code> ada perubahan belum di-push · <code>error</code> gagal terhubung ·
+          <code>unknown</code> belum pernah disinkron
+        </div>
+      </div>
+    </section>
+
+    <!-- CLI -->
+    <section class="section" id="cli">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="cli.title">Baris Perintah</h2>
+          <p class="section-subtitle" data-i18n="cli.sub">Semua alur sinkronisasi bisa dijalankan dari perintah — siap untuk script.</p>
+        </div>
+        <div class="term-card wide">
+          <div class="term-bar"><span></span><span></span><span></span><em>terminal</em></div>
+          <pre class="term-body"><span class="t-dim"># alur utama</span>
+nxzilla                  <span class="t-dim"># dalam proyek: sinkron; di luar: ruang global</span>
+nxzilla pull             <span class="t-dim"># tarik perubahan server ke folder kerja</span>
+nxzilla push             <span class="t-dim"># kirim perubahan folder kerja ke server</span>
+nxzilla status           <span class="t-dim"># status sinkronisasi (tanpa mengubah)</span>
+
+<span class="t-dim"># simulasi &amp; konflik</span>
+nxzilla push --dry-run   <span class="t-dim"># tampilkan apa yang akan ditransfer, tanpa mengubah</span>
+nxzilla --force push     <span class="t-dim"># timpa konflik (dua sisi berubah)</span>
+
+<span class="t-dim"># dari mana saja: sebut nama proyeknya</span>
+nxzilla push &lt;nama&gt;      <span class="t-dim"># push proyek terdaftar tanpa cd</span>
+nxzilla pull &lt;nama&gt;      <span class="t-dim"># pull proyek terdaftar tanpa cd</span>
+nxzilla ls [path]        <span class="t-dim"># daftar isi folder remote</span>
+
+<span class="t-dim"># mengelola proyek</span>
+nxzilla projects         <span class="t-dim"># paksa buka ruang global</span>
+nxzilla add              <span class="t-dim"># daftarkan folder kini sebagai proyek (+ profil)</span>
+nxzilla remove &lt;nama&gt;    <span class="t-dim"># berhenti melacak (folder tidak dihapus)</span>
+
+<span class="t-dim"># lainnya</span>
+nxzilla --help           <span class="t-dim"># bantuan</span>
+nxzilla --version        <span class="t-dim"># versi</span></pre>
+        </div>
+        <div class="compare-note" data-i18n-html="cli.compare">
+          <strong>Bukan FileZilla:</strong> tidak ada dua panel lokal vs remote, tidak ada
+          drag-and-drop. Yang ada satu alur: folder kerja Anda <em>adalah</em> proyek remote —
+          menggantikan cara manual menyusun folder <code>&lt;user&gt;@&lt;host&gt;\&lt;protokol&gt;</code>.
+        </div>
+      </div>
+    </section>
+
+    <!-- PASANG -->
+    <section class="section alt" id="pasang">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="ins.title">Cara Pasang</h2>
+          <p class="section-subtitle" data-i18n="ins.sub">Build dari source — satu berkas C++, tanpa dependensi pihak ketiga.</p>
+        </div>
+        <div class="install-grid">
+          <div class="term-card">
+            <div class="term-bar"><span></span><span></span><span></span><em>Windows · MSVC</em></div>
+            <pre class="term-body"><span class="t-dim"># clone repo CLI, bukan repo website ini</span>
+git clone https://github.com/iyanrsaleh/nxzilla
+cd nxzilla
+.\build.bat          <span class="t-dim"># menghasilkan nxzilla.exe</span>
+
+<span class="t-dim"># tambahkan folder hasil build ke PATH user:</span>
+$dir = 'C:\path\to\nxzilla'
+$p = [Environment]::GetEnvironmentVariable('Path','User')
+if (($p -split ';') -notcontains $dir) {
+  [Environment]::SetEnvironmentVariable('Path',
+    ($p.TrimEnd(';') + ';' + $dir), 'User')
+}</pre>
+          </div>
+          <div class="term-card">
+            <div class="term-bar"><span></span><span></span><span></span><em>Linux · g++</em></div>
+            <pre class="term-body">git clone https://github.com/iyanrsaleh/nxzilla
+cd nxzilla
+./build.sh           <span class="t-dim"># menghasilkan nxzilla</span>
+sudo install -m755 nxzilla /usr/local/bin/nxzilla</pre>
+          </div>
+        </div>
+        <p class="install-note" data-i18n="ins.note">Butuh Visual Studio (workload Desktop development with C++) di Windows, atau g++ di Linux. Untuk SSH, OpenSSH client bawaan Windows 10+/distro Linux sudah dipakai — tidak perlu install apa pun lagi.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Nxzilla" class="brand-logo footer-logo" />
+        <div>
+          <strong>Nxzilla</strong>
+          <p data-i18n="foot.tag">Jembatan terminal ke server remote — bagian dari ekosistem NXDOM.</p>
+        </div>
+      </div>
+      <nav class="footer-links">
+        <a href="https://github.com/sponsors/iyanrsaleh" target="_blank" rel="noopener" style="color:#db61a2;">Sponsor</a>
+        <a href="https://github.com/iyanrsaleh/nxzilla" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://iyanrsaleh.github.io/tatiye/" target="_blank" rel="noopener" data-i18n="foot.company">PT Tatiye Digital Solusindo</a>
+      </nav>
+      <p class="footer-copy" data-i18n="foot.copy">MIT License · © 2026 NXDOM</p>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
