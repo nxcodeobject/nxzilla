@@ -184,16 +184,21 @@ nxzilla status           <span class="t-dim"># status sinkronisasi (tanpa mengub
 
 <span class="t-dim"># simulasi &amp; konflik</span>
 nxzilla push --dry-run   <span class="t-dim"># tampilkan apa yang akan ditransfer, tanpa mengubah</span>
+nxzilla push --checksum  <span class="t-dim"># banding via SHA-1 (akurat, lebih lambat)</span>
 nxzilla --force push     <span class="t-dim"># timpa konflik (dua sisi berubah)</span>
 
 <span class="t-dim"># dari mana saja: sebut nama proyeknya</span>
 nxzilla push &lt;nama&gt;      <span class="t-dim"># push proyek terdaftar tanpa cd</span>
 nxzilla pull &lt;nama&gt;      <span class="t-dim"># pull proyek terdaftar tanpa cd</span>
+nxzilla open &lt;nama&gt;      <span class="t-dim"># buka proyek terdaftar (TUI)</span>
 nxzilla ls [path]        <span class="t-dim"># daftar isi folder remote</span>
 
-<span class="t-dim"># mengelola proyek</span>
+<span class="t-dim"># mengelola proyek &amp; konfigurasi</span>
 nxzilla projects         <span class="t-dim"># paksa buka ruang global</span>
 nxzilla add              <span class="t-dim"># daftarkan folder kini sebagai proyek (+ profil)</span>
+nxzilla scan [folder]    <span class="t-dim"># cari folder ber-.nxzilla.json lalu daftarkan</span>
+nxzilla use &lt;profil&gt;     <span class="t-dim"># set profil untuk folder kerja kini</span>
+nxzilla ignore &lt;pola&gt;    <span class="t-dim"># tambah pola ignore ke .nxzilla.json</span>
 nxzilla remove &lt;nama&gt;    <span class="t-dim"># berhenti melacak (folder tidak dihapus)</span>
 
 <span class="t-dim"># lainnya</span>
