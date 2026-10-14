@@ -48,7 +48,7 @@
       <div class="hero-glow"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="hero.badge">nxzilla 1.0.0 · Windows &amp; Linux · MIT</p>
+          <p class="eyebrow" data-i18n="hero.badge">nxzilla 1.1.0 · Windows &amp; Linux · MIT</p>
           <h1 data-i18n-html="hero.title">Folder kerja Anda, <span class="accent">proyek remote</span> Anda</h1>
           <p class="lede" data-i18n-html="hero.desc">
             Buka terminal di folder proyek, jalankan <strong>nxzilla</strong> — berkas
@@ -65,7 +65,7 @@
           <div class="term-card">
             <div class="term-bar"><span></span><span></span><span></span><em>nxzilla</em></div>
             <pre class="term-body"><span class="t-dim">PS D:\Website</span>&gt; nxzilla
-<span class="t-dim">NXZILLA</span> <span class="t-ok">v1.0.0</span>  ·  <span class="t-ok">TERHUBUNG</span>  ssh info@nxdom.org:22  ·  <span class="t-dim">38 ms</span>
+<span class="t-dim">NXZILLA</span> <span class="t-ok">v1.1.0</span>  ·  <span class="t-ok">TERHUBUNG</span>  ssh info@nxdom.org:22  ·  <span class="t-dim">38 ms</span>
   <span class="t-dim">Remote</span> /var/www/nxdom     <span class="t-dim">Lokal</span> D:\Website
   <span class="t-dim">Sinkron terakhir:</span> 2 menit lalu <span class="t-dim">(200 berkas, 3 berubah)</span>
 
@@ -109,14 +109,14 @@
             <p data-i18n="feat.4d">Jalankan nxzilla di luar proyek → beranda daftar semua proyek Nxzilla. Buka, push, pull, dan kelola profil koneksi dari satu layar — tanpa cd dulu.</p>
           </article>
           <article class="card">
-            <div class="card-icon"><i data-lucide="eye-off"></i></div>
-            <h3 data-i18n="feat.5t">Deteksi Konflik &amp; Baseline</h3>
-            <p data-i18n="feat.5d">Baseline sinkron (.nxzilla-state.json) merekam kondisi terakhir — bila lokal dan remote sama-sama berubah, berkas ditandai konflik (C) dan dilewati sampai --force. Dry-run melihat dulu tanpa mengubah.</p>
+            <div class="card-icon"><i data-lucide="shield-check"></i></div>
+            <h3 data-i18n="feat.5t">Kredensial &amp; Audit</h3>
+            <p data-i18n="feat.5d">Password disimpan di OS keyring (Windows Credential Manager), bukan teks polos; NXZILLA_PASSWORD untuk script. Deteksi konflik berbasis baseline (.nxzilla-state.json), --dry-run, --checksum SHA-1, dan penjagaan path traversal.</p>
           </article>
           <article class="card">
-            <div class="card-icon"><i data-lucide="monitor"></i></div>
-            <h3 data-i18n="feat.6t">TUI Flicker-Free</h3>
-            <p data-i18n="feat.6d">Tampilan TUI keyboard-driven bergaya NxPort: header oranye, synchronized output, tanpa kedip, dengan progress transfer per berkas. Fallback teks non-interaktif untuk script dan pipe.</p>
+            <div class="card-icon"><i data-lucide="gauge"></i></div>
+            <h3 data-i18n="feat.6t">Cepat &amp; Terpantau</h3>
+            <p data-i18n="feat.6d">FTP batching: banyak berkas dalam satu sesi curl (2.5-3x lebih cepat). Cache metadata remote membuat status berulang instan (--refresh untuk scan ulang). Statistik transfer: berkas, byte, durasi, kecepatan.</p>
           </article>
         </div>
       </div>
@@ -202,6 +202,9 @@ nxzilla ignore &lt;pola&gt;    <span class="t-dim"># tambah pola ignore ke .nxzi
 nxzilla remove &lt;nama&gt;    <span class="t-dim"># berhenti melacak (folder tidak dihapus)</span>
 
 <span class="t-dim"># lainnya</span>
+nxzilla edit &lt;file&gt;     <span class="t-dim"># tarik berkas, edit, unggah balik otomatis</span>
+nxzilla watch [detik]    <span class="t-dim"># pantau perubahan remote (--once utk script)</span>
+nxzilla --refresh status <span class="t-dim"># paksa pemindaian ulang (lewati cache)</span>
 nxzilla --help           <span class="t-dim"># bantuan</span>
 nxzilla --version        <span class="t-dim"># versi</span></pre>
         </div>
@@ -218,21 +221,21 @@ nxzilla --version        <span class="t-dim"># versi</span></pre>
       <div class="container">
         <div class="section-header">
           <h2 class="section-title" data-i18n="ins.title">Cara Pasang</h2>
-          <p class="section-subtitle" data-i18n="ins.sub">Unduh binary siap pakai dari Release v1.0.0, atau build dari source — tanpa dependensi pihak ketiga.</p>
+          <p class="section-subtitle" data-i18n="ins.sub">Unduh binary siap pakai dari Release v1.1.0, atau build dari source — tanpa dependensi pihak ketiga.</p>
         </div>
         <div class="dl-grid">
-          <a class="dl-card" href="https://github.com/iyanrsaleh/nxzilla/releases/download/v1.0.0/nxzilla-windows-x64.exe" rel="noopener">
+          <a class="dl-card" href="https://github.com/iyanrsaleh/nxzilla/releases/download/v1.1.0/nxzilla-windows-x64.exe" rel="noopener">
             <span class="dl-icon"><i data-lucide="app-window"></i></span>
             <strong>Windows x64</strong>
             <span class="dl-meta">nxzilla-windows-x64.exe</span>
           </a>
-          <a class="dl-card" href="https://github.com/iyanrsaleh/nxzilla/releases/download/v1.0.0/nxzilla-linux-x64" rel="noopener">
+          <a class="dl-card" href="https://github.com/iyanrsaleh/nxzilla/releases/download/v1.1.0/nxzilla-linux-x64" rel="noopener">
             <span class="dl-icon"><i data-lucide="terminal"></i></span>
             <strong>Linux x64</strong>
             <span class="dl-meta">nxzilla-linux-x64</span>
           </a>
         </div>
-        <p class="dl-note" data-i18n-html="ins.dlNote">Semua binary tersedia di <a href="https://github.com/iyanrsaleh/nxzilla/releases/tag/v1.0.0" target="_blank" rel="noopener">Releases v1.0.0</a>. Di Linux: <code>chmod +x nxzilla-linux-x64</code> lalu rename ke <code>nxzilla</code> dan pindahkan ke PATH.</p>
+        <p class="dl-note" data-i18n-html="ins.dlNote">Semua binary tersedia di <a href="https://github.com/iyanrsaleh/nxzilla/releases/tag/v1.1.0" target="_blank" rel="noopener">Releases v1.1.0</a>. Di Linux: <code>chmod +x nxzilla-linux-x64</code> lalu rename ke <code>nxzilla</code> dan pindahkan ke PATH.</p>
 
         <h3 class="subhead" data-i18n="ins.buildTitle">Atau Build dari Source</h3>
         <div class="install-grid">
